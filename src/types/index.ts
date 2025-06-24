@@ -2,11 +2,22 @@ export interface Project {
   id: number
   title: string
   description: string
-  image_url: string
   technologies: string[]
   github_url: string
   demo_url: string
+  image_url?: string
   featured: boolean
+  created_at: string
+  images?: ProjectImage[]
+}
+
+export interface ProjectImage {
+  id: number
+  project_id: number
+  image_url: string
+  alt_text: string | null
+  is_primary: boolean
+  display_order: number
   created_at: string
 }
 
