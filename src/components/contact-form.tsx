@@ -1,14 +1,12 @@
 "use client"
 
-import type React from "react"
-
+import React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Mail, Send } from "lucide-react"
-import { useFormState } from "react-dom"
 import { submitContactForm } from "@/app/actions"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle, CheckCircle2 } from "lucide-react"
@@ -20,7 +18,7 @@ const initialState = {
 }
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState)
+  const [state, formAction] = React.useActionState(submitContactForm, initialState)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async () => {
